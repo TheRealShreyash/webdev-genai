@@ -23,8 +23,11 @@ export const updateTodo = (id, patch) => {
   return todo;
 };
 
-export const deleteTodo  = (id) => {
-    const index = todos.findIndex(todo => todo.id === id)
+export const deleteTodo = (id) => {
+  const index = todos.findIndex((todo) => todo.id === id);
 
-    
-}
+  if (index === -1) return null;
+
+  const [deletedTodo] = todos.splice(index, 1);
+  return deletedTodo;
+};
